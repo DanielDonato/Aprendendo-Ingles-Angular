@@ -13,6 +13,8 @@ export class PainelComponent implements OnInit {
   public instrucao:string = "Traduza a frase:"
   public resposta:string;
 
+  public progresso: number = 0;
+
   public rodada:number = 0;
   public rodadaFrase: Frase
 
@@ -32,7 +34,7 @@ export class PainelComponent implements OnInit {
   public verificarResposta():void{
     if(this.resposta === this.rodadaFrase.frasePtBr){
       this.rodada++;
-      console.log(this.rodada);
+      this.progresso+= (100/this.frases.length);
       this.rodadaFrase = this.frases[this.rodada];
     }else {
       alert("Frase incorreta");
