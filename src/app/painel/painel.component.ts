@@ -19,8 +19,7 @@ export class PainelComponent implements OnInit {
   public rodadaFrase: Frase
 
   constructor() {
-    this.rodadaFrase = this.frases[this.rodada];
-    console.log(this.rodadaFrase);
+    this.atualizaRodada();
   }
 
   ngOnInit() {
@@ -35,10 +34,15 @@ export class PainelComponent implements OnInit {
     if(this.resposta === this.rodadaFrase.frasePtBr){
       this.rodada++;
       this.progresso+= (100/this.frases.length);
-      this.rodadaFrase = this.frases[this.rodada];
+      this.atualizaRodada();
     }else {
       alert("Frase incorreta");
     }
+  }
+
+  public atualizaRodada(){
+    this.rodadaFrase = this.frases[this.rodada];
+    this.resposta = "";
   }
 
 }
