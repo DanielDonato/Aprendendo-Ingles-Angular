@@ -31,6 +31,4 @@ export class TentativasComponent implements OnInit, OnChanges {
   ngOnInit() {
     
   }
-
-
 }
